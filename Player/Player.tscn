@@ -1,0 +1,109 @@
+[gd_scene load_steps=12 format=3 uid="uid://sftjlchyj8nb"]
+
+[ext_resource type="Script" path="res://Player/PlayerA.gd" id="1_itfef"]
+[ext_resource type="Texture2D" uid="uid://b8burcpo8rnnt" path="res://Imported/SunnyLand/SunnyLand Files/Sunny-land-assets-files/PNG/sprites/player/idle/player-idle-1.png" id="1_rx43b"]
+[ext_resource type="Texture2D" uid="uid://spm1xjy2vm2r" path="res://Imported/SunnyLand/SunnyLand Files/Sunny-land-assets-files/PNG/sprites/player/idle/player-idle-2.png" id="2_02vvo"]
+[ext_resource type="Texture2D" uid="uid://2ktciex3u5u1" path="res://Imported/SunnyLand/SunnyLand Files/Sunny-land-assets-files/PNG/spritesheets/player-idle.png" id="2_bytlv"]
+[ext_resource type="Texture2D" uid="uid://dhibkfufgvc6m" path="res://Imported/SunnyLand/SunnyLand Files/Sunny-land-assets-files/PNG/sprites/player/idle/player-idle-3.png" id="3_hx1fr"]
+[ext_resource type="Texture2D" uid="uid://cg15shvt21e5s" path="res://Imported/SunnyLand/SunnyLand Files/Sunny-land-assets-files/PNG/sprites/player/idle/player-idle-4.png" id="4_e48oe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxty7"]
+size = Vector2(14, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e8pqu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rx43b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_02vvo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hx1fr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_e48oe")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 30.0
+}]
+
+[sub_resource type="Animation" id="Animation_mhf78"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_n3hqm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gx1v5"]
+_data = {
+"Idle": SubResource("Animation_mhf78"),
+"RESET": SubResource("Animation_n3hqm")
+}
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_itfef")
+metadata/_edit_vertical_guides_ = [-20.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bytlv")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_qxty7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(1, -5)
+sprite_frames = SubResource("SpriteFrames_e8pqu")
+animation = &"Idle"
+frame = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gx1v5")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]

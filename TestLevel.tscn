@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckxhgil43xc3c"]
+
+[ext_resource type="PackedScene" uid="uid://sftjlchyj8nb" path="res://Player/PlayerA.tscn" id="1_2ruvq"]
+[ext_resource type="Texture2D" uid="uid://b2flknfonfbnu" path="res://Imported/Textures/SandSurface.jpg" id="2_ewxtd"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_2ruvq")]
+position = Vector2(575, 341)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="SandSurface" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color(0.482353, 0.482353, 0.482353, 1)
+position = Vector2(595, 268)
+scale = Vector2(0.224857, 0.217833)
+texture = ExtResource("2_ewxtd")
