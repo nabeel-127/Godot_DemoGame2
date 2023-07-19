@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://sftjlchyj8nb"]
 
-[ext_resource type="Script" path="res://Player/PlayerA.gd" id="1_itfef"]
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_gm50m"]
 [ext_resource type="Texture2D" uid="uid://b8burcpo8rnnt" path="res://Imported/SunnyLand/SunnyLand Files/Sunny-land-assets-files/PNG/sprites/player/idle/player-idle-1.png" id="1_rx43b"]
 [ext_resource type="Texture2D" uid="uid://spm1xjy2vm2r" path="res://Imported/SunnyLand/SunnyLand Files/Sunny-land-assets-files/PNG/sprites/player/idle/player-idle-2.png" id="2_02vvo"]
 [ext_resource type="Texture2D" uid="uid://2ktciex3u5u1" path="res://Imported/SunnyLand/SunnyLand Files/Sunny-land-assets-files/PNG/spritesheets/player-idle.png" id="2_bytlv"]
@@ -79,7 +79,7 @@ _data = {
 }
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_itfef")
+script = ExtResource("1_gm50m")
 metadata/_edit_vertical_guides_ = [-20.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -99,11 +99,9 @@ animation = &"Idle"
 frame = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(3, 3)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_gx1v5")
 }
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
