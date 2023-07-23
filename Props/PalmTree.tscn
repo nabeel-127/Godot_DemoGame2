@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk4v8o5lgpw21"]
+
+[ext_resource type="Texture2D" uid="uid://p8dxjmvt8kgo" path="res://Imported/SunnyLand/SunnyLand Trees/Sunnyland Trees/Sprites/Sliced Trees/palm.png" id="1_bkgw6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fx8sk"]
+size = Vector2(8, 7)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, -88)
+texture = ExtResource("1_bkgw6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_fx8sk")
