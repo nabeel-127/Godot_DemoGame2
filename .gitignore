@@ -1,4 +1,5 @@
 # Godot 4+ specific ignores
-/.godot
-/Imported/*
-
+# /.godot
+/Imported/Player
+/Imported/SunnyLand
+/Imported/Weapons

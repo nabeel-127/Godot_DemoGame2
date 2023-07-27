@@ -6,17 +6,42 @@ const friction = 1000
 var health = 100
 var input = Vector2.ZERO
 @onready var animation = get_node("AnimationPlayer")
-
+@onready var SlashAttack = get_node("SlashAttack")
+		
 func _ready():
 #	get_node("AnimatedSprite2D").play("Idle")
 #	animation.play("Idle")
 	velocity.y = 0.1
 	PlayAnimation()
+	Hide(SlashAttack)
+#	SlashAttack.queue_free()
 
 func _physics_process(delta):
 	PlayerMovement(delta)
 	PlayAnimation()
 	move_and_slide()
+	
+	if Input.is_action_pressed("ui_accept"):
+#		if SlashAttack == null:
+#			SlashAttack = get_node("res://Weapons/SlashAttack.tscn")
+		Show(SlashAttack)
+		SlashAttack.position = Vector2(0, -20)
+#		if SlashAttack != null:
+#			SlashAttack.queue_free()
+#			SlashAttack = null
+		
+
+func Hide(HideObject):
+	if HideObject != null:
+		HideObject.visible = false
+		HideObject.collision_layer = 0
+		HideObject.collision_mask = 0
+
+func Show(ShowObject):
+	if ShowObject != null:
+		ShowObject.visible = true
+		ShowObject.collision_layer = 0
+		ShowObject.collision_mask = 0
 
 func GetInput():
 	input.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))

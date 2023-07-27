@@ -1,0 +1,7 @@
+res://Player/Player.tscn
+res://Levels/TestLevel.tscn
+res://Props/PalmTree.tscn
+res://Mobs/Frog.tscn
+res://Weapons/SlashAttack.tscn
+res://Mobs/Frog.gd
+res://Player/Player.gd

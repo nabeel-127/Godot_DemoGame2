@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dnm7vi7ord5tq"]
 
-[ext_resource type="Texture2D" uid="uid://dcv53d5c3ynyk" path="res://Imported/Weapns/SlashAttack.png" id="1_7ke7t"]
+[ext_resource type="Texture2D" uid="uid://dcv53d5c3ynyk" path="res://Imported/Weapons/SlashAttack.png" id="1_7ke7t"]
 [ext_resource type="Script" path="res://Design/MyHitBox.gd" id="2_6q28c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_crqj5"]

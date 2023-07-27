@@ -1,0 +1,13 @@
+Sprite2D
+AnimationPlayer
+CollisionShape2D
+MyHurtBox
+CollisionPolygon2D
+MyHitBox
+AnimatedSprite2D
+Node2D
+PointLight2D
+DirectionalLight2D
+CharacterBody2D
+AnimationTree
+StaticBody2D
