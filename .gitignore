@@ -1,5 +1,6 @@
 # Godot 4+ specific ignores
 # /.godot
+/.godot/editor/filesystem_cache8
 /Imported/Player
 /Imported/SunnyLand
 /Imported/Weapons
