@@ -12,5 +12,5 @@ func _physics_process(delta):
 	else:
 		animation.play("Idle")
 
-func TakeDamage(damage: int) -> void:
+func TakeDamage(damage: int):
 	print("Damage: ", damage)

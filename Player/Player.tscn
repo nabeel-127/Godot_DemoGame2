@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://sftjlchyj8nb"]
+[gd_scene load_steps=28 format=3 uid="uid://sftjlchyj8nb"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_gm50m"]
 [ext_resource type="Texture2D" uid="uid://ber4jofddxmua" path="res://Imported/Player/Player1.png" id="2_cycjn"]
@@ -6,9 +6,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qxty7"]
 size = Vector2(22, 8.5)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_e8pqu"]
-animations = []
 
 [sub_resource type="Animation" id="Animation_iu6n6"]
 resource_name = "IdleDown"
@@ -244,13 +241,6 @@ frame = 18
 position = Vector2(0, -3.75)
 shape = SubResource("RectangleShape2D_qxty7")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(1, -5)
-sprite_frames = SubResource("SpriteFrames_e8pqu")
-animation = &""
-frame = 1
-
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
@@ -269,8 +259,8 @@ tree_root = SubResource("AnimationNodeStateMachine_s01xo")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_mc6dc")
-parameters/Idle/blend_position = Vector2(-0.234907, 0.163743)
+parameters/Idle/blend_position = Vector2(-0.00802857, 0.973799)
 parameters/Walk/blend_position = Vector2(0.496712, 0.333333)
 
 [node name="SlashAttack" parent="." instance=ExtResource("3_1tme1")]
-position = Vector2(0, -18)
+position = Vector2(0, -20)
