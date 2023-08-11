@@ -1,6 +1,0 @@
-res://Levels/TestLevel.tscn
-res://Props/PalmTree.tscn
-res://Characters/Player/PlayerCharacterA.tscn
-res://Characters/Mobs/Frog.tscn
-res://Main.tscn
-res://Characters/Player/PlayerCharacterA.gd
