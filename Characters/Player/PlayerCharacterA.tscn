@@ -1,0 +1,107 @@
+[gd_scene load_steps=19 format=3 uid="uid://c3y8qhe7b27gk"]
+
+[ext_resource type="Script" path="res://Characters/Player/PlayerCharacterA.gd" id="1_il7sj"]
+[ext_resource type="Texture2D" uid="uid://bjh1cm6xcbl1y" path="res://Textures/Characters/PlayerCharacterA.png" id="2_r4kpc"]
+[ext_resource type="PackedScene" uid="uid://dnm7vi7ord5tq" path="res://Weapons/SlashAttack.tscn" id="3_1tme1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxty7"]
+size = Vector2(18, 8.25)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gx1v5"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hthyv"]
+animation = &"IdleLeft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2jpvh"]
+animation = &"IdleRight"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o1v2j"]
+animation = &"IdleDown"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4vuuy"]
+animation = &"IdleUp"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_211oj"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_hthyv")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_2jpvh")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_o1v2j")
+blend_point_2/pos = Vector2(0, 1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_4vuuy")
+blend_point_3/pos = Vector2(0, -1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ojrsj"]
+animation = &"WalkLeft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t27q0"]
+animation = &"WalkDown"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6wtnd"]
+animation = &"WalkRight"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_41e7l"]
+animation = &"WalkUp"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_tr4fq"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_ojrsj")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_t27q0")
+blend_point_1/pos = Vector2(0, 1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_6wtnd")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_41e7l")
+blend_point_3/pos = Vector2(0, -1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mx7fj"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_s01xo"]
+states/Idle/node = SubResource("AnimationNodeBlendSpace2D_211oj")
+states/Idle/position = Vector2(352, 100.222)
+states/Start/position = Vector2(196.667, 100)
+states/Walk/node = SubResource("AnimationNodeBlendSpace2D_tr4fq")
+states/Walk/position = Vector2(504.667, 99.5556)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_mx7fj")]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_mc6dc"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_il7sj")
+metadata/_edit_vertical_guides_ = [-20.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -17.17)
+scale = Vector2(0.044, 0.044)
+texture = ExtResource("2_r4kpc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3.125)
+shape = SubResource("RectangleShape2D_qxty7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gx1v5")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_s01xo")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_mc6dc")
+parameters/Idle/blend_position = Vector2(-0.00802857, 0.973799)
+parameters/Walk/blend_position = Vector2(0.496712, 0.333333)
+
+[node name="SlashAttack" parent="." instance=ExtResource("3_1tme1")]
+visible = false
+position = Vector2(0, -20)

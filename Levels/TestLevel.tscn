@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckxhgil43xc3c"]
+[gd_scene load_steps=4 format=3 uid="uid://ckxhgil43xc3c"]
 
 [ext_resource type="Script" path="res://Levels/TestLevel.gd" id="1_a0wv7"]
-[ext_resource type="PackedScene" uid="uid://sftjlchyj8nb" path="res://Player/Player.tscn" id="3_ao6rl"]
-[ext_resource type="PackedScene" uid="uid://dk4v8o5lgpw21" path="res://Props/PalmTree.tscn" id="3_h0gih"]
-[ext_resource type="PackedScene" uid="uid://cx8uyik8dm8pf" path="res://Mobs/Frog.tscn" id="4_77bll"]
+[ext_resource type="PackedScene" uid="uid://c3y8qhe7b27gk" path="res://Characters/Player/PlayerCharacterA.tscn" id="2_8ivwg"]
+[ext_resource type="PackedScene" uid="uid://dk4v8o5lgpw21" path="res://Props/PalmTree.tscn" id="3_jajxf"]
 
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
@@ -14,15 +13,10 @@ metadata/_edit_horizontal_guides_ = []
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+scale = Vector2(0.149, 0.149)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("3_ao6rl")]
-position = Vector2(537, 354)
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_8ivwg")]
+position = Vector2(567, 286)
 
-[node name="StaticBody2D" parent="." instance=ExtResource("3_h0gih")]
-position = Vector2(377, 317)
-
-[node name="StaticBody2D2" parent="." instance=ExtResource("3_h0gih")]
-position = Vector2(710, 327)
-
-[node name="CharacterBody2D2" parent="." instance=ExtResource("4_77bll")]
-position = Vector2(661, 380)
+[node name="StaticBody2D" parent="." instance=ExtResource("3_jajxf")]
+position = Vector2(488, 296)

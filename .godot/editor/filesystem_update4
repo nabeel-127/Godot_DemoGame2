@@ -1,5 +1,6 @@
-res://Player/Player.tscn
 res://Levels/TestLevel.tscn
 res://Props/PalmTree.tscn
-res://Mobs/Frog.tscn
-res://Weapons/SlashAttack.tscn
+res://Characters/Player/PlayerCharacterA.tscn
+res://Characters/Mobs/Frog.tscn
+res://Main.tscn
+res://Characters/Player/PlayerCharacterA.gd
