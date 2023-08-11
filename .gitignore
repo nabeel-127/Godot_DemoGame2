@@ -1,6 +1,5 @@
 # Godot 4+ specific ignores
-# /.godot
-/.godot/editor/filesystem_cache8
+/.godot
 /.vscode
 /Imported/Player
 /Imported/SunnyLand
