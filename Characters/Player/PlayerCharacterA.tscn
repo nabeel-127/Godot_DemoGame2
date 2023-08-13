@@ -1,13 +1,108 @@
-[gd_scene load_steps=19 format=3 uid="uid://c3y8qhe7b27gk"]
+[gd_scene load_steps=22 format=3 uid="uid://c3y8qhe7b27gk"]
 
 [ext_resource type="Script" path="res://Characters/Player/PlayerCharacterA.gd" id="1_il7sj"]
-[ext_resource type="Texture2D" uid="uid://bjh1cm6xcbl1y" path="res://Textures/Characters/PlayerCharacterA.png" id="2_r4kpc"]
+[ext_resource type="Texture2D" uid="uid://d0djp2m5s8xub" path="res://Textures/Characters/PlayerCharacterA/IdleDown/PlayerCharacterA_IdleDown.png" id="2_0yrp7"]
 [ext_resource type="PackedScene" uid="uid://dnm7vi7ord5tq" path="res://Weapons/SlashAttack.tscn" id="3_1tme1"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_rthua"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0yrp7")
+}],
+"loop": true,
+"name": &"IdleDown",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qxty7"]
-size = Vector2(18, 8.25)
+size = Vector2(16, 8.25)
+
+[sub_resource type="Animation" id="Animation_befxy"]
+resource_name = "IdleDown"
+length = 0.6
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.037, 0.037), Vector2(0.038, 0.036), Vector2(0.039, 0.035), Vector2(0.04, 0.034)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -14.5), Vector2(0, -14.137), Vector2(0, -13.749), Vector2(0, -13.24)]
+}
+
+[sub_resource type="Animation" id="Animation_66d0j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.037, 0.038)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -14.137)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gx1v5"]
+_data = {
+"IdleDown": SubResource("Animation_befxy"),
+"RESET": SubResource("Animation_66d0j")
+}
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hthyv"]
 animation = &"IdleLeft"
@@ -73,16 +168,23 @@ script = ExtResource("1_il7sj")
 metadata/_edit_vertical_guides_ = [-20.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(0, -17.17)
 scale = Vector2(0.044, 0.044)
-texture = ExtResource("2_r4kpc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -14.137)
+scale = Vector2(0.037, 0.038)
+sprite_frames = SubResource("SpriteFrames_rthua")
+animation = &"IdleDown"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3.125)
 shape = SubResource("RectangleShape2D_qxty7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+enabled = false
+zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 drag_left_margin = 0.1
 drag_top_margin = 0.1

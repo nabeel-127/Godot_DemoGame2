@@ -9,6 +9,10 @@ script/source = "extends Control
 
 func _on_back_button_pressed():
 	get_tree().change_scene_to_file(\"res://Main.tscn\")
+
+
+func _on_video_button_pressed():
+	get_tree().change_scene_to_file(\"res://UI/VideoSettings.tscn\")
 "
 
 [node name="Control" type="Control"]
@@ -95,4 +99,5 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Back"
 
+[connection signal="pressed" from="VideoButton" to="." method="_on_video_button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

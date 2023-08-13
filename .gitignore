@@ -1,6 +1,4 @@
 # Godot 4+ specific ignores
 /.godot
 /.vscode
-/Imported/Player
-/Imported/SunnyLand
-/Imported/Weapons
+/Imported/*
