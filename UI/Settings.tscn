@@ -1,30 +1,19 @@
 [gd_scene load_steps=2 format=3 uid="uid://c812htxhd2dik"]
 
-[sub_resource type="GDScript" id="GDScript_y75u8"]
-script/source = "extends Control
+[ext_resource type="Script" path="res://UI/Settings.gd" id="1_xjsh7"]
 
+[node name="CanvasLayer" type="CanvasLayer"]
 
-
-
-
-func _on_back_button_pressed():
-	get_tree().change_scene_to_file(\"res://Main.tscn\")
-
-
-func _on_video_button_pressed():
-	get_tree().change_scene_to_file(\"res://UI/VideoSettings.tscn\")
-"
-
-[node name="Control" type="Control"]
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_y75u8")
+script = ExtResource("1_xjsh7")
 
-[node name="GameplayButton" type="Button" parent="."]
+[node name="GameplayButton" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2
@@ -39,7 +28,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Gameplay"
 
-[node name="VideoButton" type="Button" parent="."]
+[node name="VideoButton" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.55
@@ -54,7 +43,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Video"
 
-[node name="AudioButton" type="Button" parent="."]
+[node name="AudioButton" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2
@@ -69,7 +58,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Audio"
 
-[node name="InterfaceButton" type="Button" parent="."]
+[node name="InterfaceButton" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.55
@@ -84,7 +73,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Interface"
 
-[node name="BackButton" type="Button" parent="."]
+[node name="BackButton" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.42
@@ -99,5 +88,5 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Back"
 
-[connection signal="pressed" from="VideoButton" to="." method="_on_video_button_pressed"]
-[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Control/VideoButton" to="Control" method="_on_video_button_pressed"]
+[connection signal="pressed" from="Control/BackButton" to="Control" method="_on_back_button_pressed"]

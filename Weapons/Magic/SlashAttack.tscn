@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://dnm7vi7ord5tq"]
+[gd_scene load_steps=14 format=3 uid="uid://dnm7vi7ord5tq"]
 
-[ext_resource type="Texture2D" uid="uid://dcv53d5c3ynyk" path="res://Imported/Weapons/SlashAttack.png" id="1_7ke7t"]
-[ext_resource type="Script" path="res://Weapons/SlashAttack.gd" id="1_m575f"]
-[ext_resource type="Script" path="res://Design/MyHitBox.gd" id="2_6q28c"]
+[ext_resource type="Script" path="res://Weapons/Magic/SlashAttack.gd" id="1_21rfs"]
+[ext_resource type="Script" path="res://Gameplay/MyHitBox.gd" id="2_p7gee"]
 
 [sub_resource type="Animation" id="Animation_uufgb"]
 length = 0.001
@@ -173,7 +172,7 @@ radius = 10.6115
 height = 68.0985
 
 [node name="SlashAttack" type="Node2D"]
-script = ExtResource("1_m575f")
+script = ExtResource("1_21rfs")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -181,38 +180,35 @@ libraries = {
 }
 
 [node name="Sprite2D1" type="Sprite2D" parent="."]
-texture = ExtResource("1_7ke7t")
 hframes = 6
 vframes = 5
 
 [node name="MyHitBox" type="Area2D" parent="Sprite2D1"]
-script = ExtResource("2_6q28c")
+script = ExtResource("2_p7gee")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D1/MyHitBox"]
 position = Vector2(-1, 2)
 shape = SubResource("CircleShape2D_crqj5")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-texture = ExtResource("1_7ke7t")
 hframes = 6
 vframes = 5
 frame = 6
 
 [node name="MyHitBox" type="Area2D" parent="Sprite2D2"]
-script = ExtResource("2_6q28c")
+script = ExtResource("2_p7gee")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/MyHitBox"]
 position = Vector2(-1, 2)
 shape = SubResource("CircleShape2D_crqj5")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
-texture = ExtResource("1_7ke7t")
 hframes = 6
 vframes = 5
 frame = 12
 
 [node name="MyHitBox" type="Area2D" parent="Sprite2D3"]
-script = ExtResource("2_6q28c")
+script = ExtResource("2_p7gee")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D3/MyHitBox"]
 position = Vector2(0, 1)
@@ -220,13 +216,12 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_l8ess")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
-texture = ExtResource("1_7ke7t")
 hframes = 6
 vframes = 5
 frame = 18
 
 [node name="MyHitBox" type="Area2D" parent="Sprite2D4"]
-script = ExtResource("2_6q28c")
+script = ExtResource("2_p7gee")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D4/MyHitBox"]
 position = Vector2(8, 0)

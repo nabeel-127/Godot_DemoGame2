@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" path="res://UI/VideoSettings.gd" id="1_8jh60"]
 
-[node name="Control" type="Control"]
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8jh60")
 
-[node name="BackButton" type="Button" parent="."]
+[node name="BackButton" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.42
@@ -21,25 +23,99 @@ anchor_bottom = 0.8
 offset_left = 0.539978
 offset_top = 0.052002
 offset_right = -0.540039
-offset_bottom = -0.0520325
+offset_bottom = -0.052063
 grow_horizontal = 2
 grow_vertical = 2
 text = "Back"
 
-[node name="CheckButton" type="CheckButton" parent="."]
+[node name="LeftPanel" type="VBoxContainer" parent="Control"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.45
-anchor_top = 0.481
-anchor_right = 0.55
-anchor_bottom = 0.519
-offset_left = 0.5
-offset_top = -0.300018
-offset_right = -0.5
-offset_bottom = 0.299957
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -352.0
+offset_top = -125.0
+offset_right = -48.0
+offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/LeftPanel"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="FullscreenLabel" type="Label" parent="Control/LeftPanel/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
 text = "Fullscreen"
 
-[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
+[node name="Fullscreen" type="CheckButton" parent="Control/LeftPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/LeftPanel"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ResolutionLabel" type="Label" parent="Control/LeftPanel/HBoxContainer2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Resolution"
+
+[node name="Resolution" type="OptionButton" parent="Control/LeftPanel/HBoxContainer2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 4
+item_count = 1
+popup/item_0/text = ""
+popup/item_0/id = 0
+
+[node name="RightPanel" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 48.0
+offset_top = -125.0
+offset_right = 352.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/RightPanel"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Resolution" type="Label" parent="Control/RightPanel/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Placeholder"
+
+[node name="OptionButton" type="OptionButton" parent="Control/RightPanel/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/RightPanel"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Resolution" type="Label" parent="Control/RightPanel/HBoxContainer2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Placeholder"
+
+[node name="OptionButton" type="OptionButton" parent="Control/RightPanel/HBoxContainer2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[connection signal="pressed" from="Control/BackButton" to="Control" method="_on_back_button_pressed"]
+[connection signal="toggled" from="Control/LeftPanel/HBoxContainer/Fullscreen" to="Control" method="_on_fullscreen_toggled"]

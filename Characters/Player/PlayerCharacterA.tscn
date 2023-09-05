@@ -1,15 +1,15 @@
 [gd_scene load_steps=39 format=3 uid="uid://c3y8qhe7b27gk"]
 
 [ext_resource type="Script" path="res://Characters/Player/PlayerCharacterA.gd" id="1_il7sj"]
-[ext_resource type="Texture2D" uid="uid://cvlf7eqn24qca" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_Down.png" id="2_w0ard"]
-[ext_resource type="PackedScene" uid="uid://dnm7vi7ord5tq" path="res://Weapons/SlashAttack.tscn" id="3_1tme1"]
-[ext_resource type="Texture2D" uid="uid://b031mngvrrlx3" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_DownLeft.png" id="3_boa25"]
-[ext_resource type="Texture2D" uid="uid://dfw6x35agurgf" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_DownRight.png" id="4_edwbs"]
-[ext_resource type="Texture2D" uid="uid://cq67s104ie8sb" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_Left.png" id="5_fo28b"]
-[ext_resource type="Texture2D" uid="uid://nhyg5nn4vir4" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_Right.png" id="6_5qjdp"]
-[ext_resource type="Texture2D" uid="uid://clgfffrql5p0e" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_Up.png" id="7_ku04g"]
-[ext_resource type="Texture2D" uid="uid://ds78nhb28ho1n" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_UpLeft.png" id="8_fayer"]
-[ext_resource type="Texture2D" uid="uid://wp51dfgqxxto" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_UpRight.png" id="9_r6c5p"]
+[ext_resource type="Texture2D" uid="uid://dg3qvpvkbdu5u" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_Down.png" id="2_w0ard"]
+[ext_resource type="PackedScene" uid="uid://dnm7vi7ord5tq" path="res://Weapons/Magic/SlashAttack.tscn" id="3_1tme1"]
+[ext_resource type="Texture2D" uid="uid://c8r36kehoxunv" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_DownLeft.png" id="3_boa25"]
+[ext_resource type="Texture2D" uid="uid://dd2h2uqno4lsv" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_DownRight.png" id="4_edwbs"]
+[ext_resource type="Texture2D" uid="uid://bmvrhxmqv8vns" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_Left.png" id="5_fo28b"]
+[ext_resource type="Texture2D" uid="uid://d2yi36q1rwb21" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_Right.png" id="6_5qjdp"]
+[ext_resource type="Texture2D" uid="uid://dgppf6t1nabf2" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_Up.png" id="7_ku04g"]
+[ext_resource type="Texture2D" uid="uid://boq43mrgm31kc" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_UpLeft.png" id="8_fayer"]
+[ext_resource type="Texture2D" uid="uid://cry3e424ddnul" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_UpRight.png" id="9_r6c5p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rthua"]
 animations = [{
@@ -376,7 +376,7 @@ scale = Vector2(0.044, 0.044)
 position = Vector2(0, -15.371)
 scale = Vector2(0.04, 0.04)
 sprite_frames = SubResource("SpriteFrames_rthua")
-animation = &"IdleUp"
+animation = &"IdleDown"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3.125)
