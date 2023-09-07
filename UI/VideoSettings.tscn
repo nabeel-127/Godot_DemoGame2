@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgiijgvn8w2ks"]
+[gd_scene load_steps=3 format=3 uid="uid://bgiijgvn8w2ks"]
 
 [ext_resource type="Script" path="res://UI/VideoSettings.gd" id="1_8jh60"]
+[ext_resource type="PackedScene" uid="uid://du1wgn47updtx" path="res://HUD/DisplayFPS.tscn" id="2_1a2v7"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="DisplayFPS" parent="." instance=ExtResource("2_1a2v7")]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -42,30 +45,76 @@ offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/LeftPanel"]
+[node name="Fullscreen" type="HBoxContainer" parent="Control/LeftPanel"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="FullscreenLabel" type="Label" parent="Control/LeftPanel/HBoxContainer"]
+[node name="FullscreenLabel" type="Label" parent="Control/LeftPanel/Fullscreen"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Fullscreen"
 
-[node name="Fullscreen" type="CheckButton" parent="Control/LeftPanel/HBoxContainer"]
+[node name="FullscreenButton" type="CheckButton" parent="Control/LeftPanel/Fullscreen"]
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/LeftPanel"]
+[node name="Borderless" type="HBoxContainer" parent="Control/LeftPanel"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="BorderlessLabel" type="Label" parent="Control/LeftPanel/Borderless"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Borderless"
+
+[node name="BorderlessButton" type="CheckButton" parent="Control/LeftPanel/Borderless"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="VSync" type="HBoxContainer" parent="Control/LeftPanel"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="VSyncLabel" type="Label" parent="Control/LeftPanel/VSync"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "VSync"
+
+[node name="VSyncButton" type="CheckButton" parent="Control/LeftPanel/VSync"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="MaxFPS" type="HBoxContainer" parent="Control/LeftPanel"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="MaxFPSLabel" type="Label" parent="Control/LeftPanel/MaxFPS"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "FPS"
+
+[node name="MaxFPSLabel2" type="Label" parent="Control/LeftPanel/MaxFPS"]
+custom_minimum_size = Vector2(28, 0)
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="Control/LeftPanel/MaxFPS"]
+custom_minimum_size = Vector2(118, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 360.0
+step = 30.0
+
+[node name="Resolution" type="HBoxContainer" parent="Control/LeftPanel"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="ResolutionLabel" type="Label" parent="Control/LeftPanel/HBoxContainer2"]
+[node name="ResolutionLabel" type="Label" parent="Control/LeftPanel/Resolution"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Resolution"
 
-[node name="Resolution" type="OptionButton" parent="Control/LeftPanel/HBoxContainer2"]
+[node name="ResolutionButton" type="OptionButton" parent="Control/LeftPanel/Resolution"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 4
@@ -92,12 +141,12 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Resolution" type="Label" parent="Control/RightPanel/HBoxContainer"]
+[node name="res1" type="Label" parent="Control/RightPanel/HBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Placeholder"
 
-[node name="OptionButton" type="OptionButton" parent="Control/RightPanel/HBoxContainer"]
+[node name="OptionButton1" type="OptionButton" parent="Control/RightPanel/HBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 4
@@ -107,15 +156,18 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Resolution" type="Label" parent="Control/RightPanel/HBoxContainer2"]
+[node name="res2" type="Label" parent="Control/RightPanel/HBoxContainer2"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Placeholder"
 
-[node name="OptionButton" type="OptionButton" parent="Control/RightPanel/HBoxContainer2"]
+[node name="OptionButton2" type="OptionButton" parent="Control/RightPanel/HBoxContainer2"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 4
 
 [connection signal="pressed" from="Control/BackButton" to="Control" method="_on_back_button_pressed"]
-[connection signal="toggled" from="Control/LeftPanel/HBoxContainer/Fullscreen" to="Control" method="_on_fullscreen_toggled"]
+[connection signal="toggled" from="Control/LeftPanel/Fullscreen/FullscreenButton" to="Control" method="_on_fullscreen_toggled"]
+[connection signal="toggled" from="Control/LeftPanel/Borderless/BorderlessButton" to="Control" method="_on_borderless_toggled"]
+[connection signal="toggled" from="Control/LeftPanel/VSync/VSyncButton" to="Control" method="_on_v_sync_toggled"]
+[connection signal="item_selected" from="Control/LeftPanel/Resolution/ResolutionButton" to="Control" method="_on_resolution_item_selected"]

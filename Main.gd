@@ -1,5 +1,11 @@
 extends Control
 
+
+func _ready():
+	Engine.max_fps = 360
+
+
+
 func _on_quit_pressed():
 	get_tree().quit()
 

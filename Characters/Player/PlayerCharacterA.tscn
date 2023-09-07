@@ -376,7 +376,7 @@ scale = Vector2(0.044, 0.044)
 position = Vector2(0, -15.371)
 scale = Vector2(0.04, 0.04)
 sprite_frames = SubResource("SpriteFrames_rthua")
-animation = &"IdleDown"
+animation = &"IdleUp"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3.125)
