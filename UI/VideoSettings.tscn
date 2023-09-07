@@ -88,7 +88,7 @@ size_flags_horizontal = 10
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="MaxFPSLabel" type="Label" parent="Control/LeftPanel/MaxFPS"]
+[node name="MaxFPSLabel1" type="Label" parent="Control/LeftPanel/MaxFPS"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "FPS"
