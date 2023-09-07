@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_r3u71")
 
 [node name="FPS" type="Label" parent="."]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 15.0
 offset_right = 60.0
