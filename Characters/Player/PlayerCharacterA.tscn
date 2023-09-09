@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c3y8qhe7b27gk"]
+[gd_scene load_steps=38 format=3 uid="uid://c3y8qhe7b27gk"]
 
 [ext_resource type="Script" path="res://Characters/Player/PlayerCharacterA.gd" id="1_il7sj"]
 [ext_resource type="Texture2D" uid="uid://dg3qvpvkbdu5u" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_Down.png" id="2_w0ard"]
@@ -361,8 +361,6 @@ states/Walk/node = SubResource("AnimationNodeBlendSpace2D_tr4fq")
 states/Walk/position = Vector2(504.667, 99.5556)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_mx7fj")]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_mc6dc"]
-
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_il7sj")
 metadata/_edit_vertical_guides_ = [-20.0]
@@ -400,7 +398,6 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_s01xo")
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_mc6dc")
 parameters/Idle/blend_position = Vector2(-0.106884, -0.30131)
 parameters/Walk/blend_position = Vector2(-0.00181162, 1)
 

@@ -6,7 +6,19 @@ extends Control
 @onready var MaxFPS = $LeftPanel/MaxFPS/HSlider
 @onready var MaxFPSLabel2 = $LeftPanel/MaxFPS/MaxFPSLabel2
 
-var ResolutionRange = {
+var IndexResolutionRange = {
+	0: "640x480",
+	1: "800x600",
+	2: "1024x768",
+	3: "1152x864",
+	4: "1280x800",
+	5: "1280x960",
+	6: "1440x1080",
+	7: "1920x1080",
+	8: "2560x1440",
+	9: "3840x2160"
+}
+var ResolutionIndexRange = {
 	"640x480": 0,
 	"800x600": 1,
 	"1024x768": 2,
@@ -15,7 +27,8 @@ var ResolutionRange = {
 	"1280x960": 5,
 	"1440x1080": 6,
 	"1920x1080": 7,
-	"2880x1800": 8
+	"2560x1440": 8,
+	"3840x2160": 9
 }
 var SelectedResolution
 var FPSRange = {
@@ -54,15 +67,20 @@ func _process(_delta):
 
 
 func AddResolutions():
-	Resolution.add_item("640x480")
-	Resolution.add_item("800x600")
-	Resolution.add_item("1024x768")
-	Resolution.add_item("1152x864")
-	Resolution.add_item("1280x800")
-	Resolution.add_item("1280x960")
-	Resolution.add_item("1440x1080")
-	Resolution.add_item("1920x1080")
-	Resolution.add_item("2880x1800")
+	var i = 0
+	while (i < IndexResolutionRange.size()):
+		Resolution.add_item(IndexResolutionRange[i])
+		i += 1
+		
+#	Resolution.add_item("800x600")
+#	Resolution.add_item("1024x768")
+#	Resolution.add_item("1152x864")
+#	Resolution.add_item("1280x800")
+#	Resolution.add_item("1280x960")
+#	Resolution.add_item("1440x1080")
+#	Resolution.add_item("1920x1080")
+#	Resolution.add_item("2560x1440")
+#	Resolution.add_item("3840x2160")
 
 func RemoveResolutions():
 	var i = 8
@@ -75,7 +93,7 @@ func ComputeResolution():
 	SelectedResolution = str(SelectedResolution[0]) + "x" + str(SelectedResolution[1])
 
 func SelectResolution():
-	Resolution.select(ResolutionRange[SelectedResolution])
+	Resolution.select(ResolutionIndexRange[SelectedResolution])
 
 func SetFPS():
 	MaxFPSLabel2.text = str(FPSRange[int(MaxFPS.value)])
