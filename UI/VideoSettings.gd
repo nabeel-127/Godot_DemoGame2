@@ -49,15 +49,12 @@ func _ready():
 	
 	SetFPS()
 	
-	
 	SelectResolution()
 	
 	print(DisplayServer.get_screen_count())
 	print(DisplayServer.screen_get_size(0))
 	print(DisplayServer.screen_get_size(1))
 	print(DisplayServer.get_primary_screen())
-#	print(DisplayServer.)
-#	print(DisplayServer.)
 
 
 
@@ -67,23 +64,14 @@ func _process(_delta):
 
 
 func AddResolutions():
+#	Resolution.add_item("800x600")	
 	var i = 0
 	while (i < IndexResolutionRange.size()):
 		Resolution.add_item(IndexResolutionRange[i])
-		i += 1
-		
-#	Resolution.add_item("800x600")
-#	Resolution.add_item("1024x768")
-#	Resolution.add_item("1152x864")
-#	Resolution.add_item("1280x800")
-#	Resolution.add_item("1280x960")
-#	Resolution.add_item("1440x1080")
-#	Resolution.add_item("1920x1080")
-#	Resolution.add_item("2560x1440")
-#	Resolution.add_item("3840x2160")
+		i += 1	
 
 func RemoveResolutions():
-	var i = 8
+	var i = IndexResolutionRange.size() - 1
 	while i >= 0:
 		Resolution.remove_item(i)
 		i -= 1

@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://dnm7vi7ord5tq"]
+[gd_scene load_steps=15 format=3 uid="uid://dnm7vi7ord5tq"]
 
 [ext_resource type="Script" path="res://Weapons/Magic/SlashAttack.gd" id="1_21rfs"]
+[ext_resource type="Texture2D" uid="uid://u23qkx2uxgpv" path="res://Textures/Imported/Weapons/SlashAttack.png" id="2_blql2"]
 [ext_resource type="Script" path="res://Gameplay/MyHitBox.gd" id="2_p7gee"]
 
 [sub_resource type="Animation" id="Animation_uufgb"]
@@ -180,6 +181,7 @@ libraries = {
 }
 
 [node name="Sprite2D1" type="Sprite2D" parent="."]
+texture = ExtResource("2_blql2")
 hframes = 6
 vframes = 5
 

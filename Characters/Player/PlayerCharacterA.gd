@@ -6,7 +6,7 @@ const max_speed = 100
 const acceleration = 500
 const friction = 1000
 
-var health = 100
+var health: float = 100
 var input = Vector2.ZERO
 var IsSlashAttacking: bool = false
 var Weapon: int = 2
@@ -67,6 +67,7 @@ func SelectWeapon():
 
 func Hide(HideObject, index):
 	if HideObject[0] != null:
+		print("Entered Hide")		
 		HideObject[index].visible = false
 		HideObject[index + 1].collision_layer = 0
 		HideObject[index + 1].collision_mask = 0
@@ -74,6 +75,7 @@ func Hide(HideObject, index):
 
 func Show(ShowObject, index):
 	if ShowObject[0] != null:
+		print("Entered Show")		
 		ShowObject[index].visible = true
 		ShowObject[index + 1].collision_layer = 2
 		ShowObject[index + 1].collision_mask = 0
