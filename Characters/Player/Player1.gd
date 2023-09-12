@@ -30,7 +30,7 @@ func _ready():
 	SlashAttack.append(SlashAttack[2].get_node("MyHitBox"))				#[7]
 	SlashAttack.append(SlashAttack[0].get_node("Sprite2D4"))			#[8]
 	SlashAttack.append(SlashAttack[2].get_node("MyHitBox"))				#[9]
-	
+
 
 
 func _physics_process(delta):

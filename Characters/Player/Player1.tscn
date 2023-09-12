@@ -1,6 +1,6 @@
 [gd_scene load_steps=38 format=3 uid="uid://c3y8qhe7b27gk"]
 
-[ext_resource type="Script" path="res://Characters/Player/PlayerCharacterA.gd" id="1_il7sj"]
+[ext_resource type="Script" path="res://Characters/Player/Player1.gd" id="1_o6el0"]
 [ext_resource type="Texture2D" uid="uid://dg3qvpvkbdu5u" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_Down.png" id="2_w0ard"]
 [ext_resource type="PackedScene" uid="uid://dnm7vi7ord5tq" path="res://Weapons/Magic/SlashAttack.tscn" id="3_1tme1"]
 [ext_resource type="Texture2D" uid="uid://c8r36kehoxunv" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_DownLeft.png" id="3_boa25"]
@@ -362,7 +362,7 @@ states/Walk/position = Vector2(504.667, 99.5556)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_mx7fj")]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_il7sj")
+script = ExtResource("1_o6el0")
 metadata/_edit_vertical_guides_ = [-20.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

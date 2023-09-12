@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ckxhgil43xc3c"]
 
 [ext_resource type="Script" path="res://Levels/TestLevel.gd" id="1_a0wv7"]
-[ext_resource type="PackedScene" uid="uid://c3y8qhe7b27gk" path="res://Characters/Player/PlayerCharacterA.tscn" id="2_8ivwg"]
+[ext_resource type="PackedScene" uid="uid://c3y8qhe7b27gk" path="res://Characters/Player/Player1.tscn" id="2_8ivwg"]
 [ext_resource type="PackedScene" uid="uid://du1wgn47updtx" path="res://HUD/DisplayFPS.tscn" id="2_kmrvc"]
 [ext_resource type="PackedScene" uid="uid://dk4v8o5lgpw21" path="res://Props/PalmTree.tscn" id="3_jajxf"]
 
@@ -15,17 +15,6 @@ metadata/_edit_horizontal_guides_ = []
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 scale = Vector2(0.149, 0.149)
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_8ivwg")]
-position = Vector2(567, 286)
-
-[node name="Camera2D2" type="Camera2D" parent="CharacterBody2D"]
-zoom = Vector2(3.925, 3.925)
-position_smoothing_enabled = true
-drag_left_margin = 0.1
-drag_top_margin = 0.1
-drag_right_margin = 0.1
-drag_bottom_margin = 0.1
 
 [node name="StaticBody2D" parent="." instance=ExtResource("3_jajxf")]
 position = Vector2(488, 296)
@@ -42,7 +31,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="CanvasLayer/Control"]
+[node name="BackButton" type="Button" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.04
@@ -57,4 +46,62 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Back"
 
-[connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]
+[node name="SaveButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.67
+anchor_right = 0.15
+anchor_bottom = 0.74
+offset_left = -0.159996
+offset_top = -3.05176e-05
+offset_right = 0.159973
+grow_horizontal = 2
+grow_vertical = 2
+text = "Save"
+
+[node name="ChangeHealthButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.57
+anchor_right = 0.15
+anchor_bottom = 0.64
+offset_left = -0.159996
+offset_top = -3.05176e-05
+offset_right = 0.159973
+grow_horizontal = 2
+grow_vertical = 2
+text = "health -5"
+
+[node name="LoadButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.77
+anchor_right = 0.15
+anchor_bottom = 0.84
+offset_left = 0.039978
+offset_top = -0.300018
+offset_right = -0.0400391
+offset_bottom = 0.299957
+grow_horizontal = 2
+grow_vertical = 2
+text = "Load"
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_8ivwg")]
+position = Vector2(636, 395)
+
+[node name="Camera2D2" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(0, -3.05176e-05)
+zoom = Vector2(3.925, 3.925)
+position_smoothing_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
+
+[connection signal="pressed" from="CanvasLayer/Control/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/ChangeHealthButton" to="." method="_on_change_health_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/LoadButton" to="." method="_on_load_button_pressed"]
