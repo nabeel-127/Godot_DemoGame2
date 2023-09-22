@@ -18,7 +18,7 @@ func _ready():
 	velocity.y = 0.1
 	PlayAnimation()
 	
-#	MyAnimationTree.animation_started.connect(GetAnimation)
+	MyAnimationTree.animation_started.connect(GetAnimation)
 	
 	if MagicArrow[0] != null:
 		MagicArrow.append(MagicArrow[0].get_node("AnimationPlayer"))
@@ -51,7 +51,7 @@ func _physics_process(delta):
 	
 
 func GetAnimation(animation_name: String):
-	return (animation_name)
+	print(animation_name)
 
 func SelectWeapon():
 	if Input.is_action_just_pressed("Weapon1"):
@@ -81,8 +81,8 @@ func Show(ShowObject):
 func GetInput():
 	input.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
 	input.y = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
-	if input != Vector2.ZERO:
-		print(input)
+#	if input != Vector2.ZERO:
+#		print(input)
 	return input.normalized()
 
 func PlayerMovement(delta):

@@ -108,10 +108,10 @@ sprite_frames = SubResource("SpriteFrames_wiktq")
 animation = &"Idle"
 frame = 1
 
-[node name="MyHurtBox2" type="Area2D" parent="AnimatedSprite2D"]
+[node name="MyHurtBox" type="Area2D" parent="AnimatedSprite2D"]
 script = ExtResource("5_paxyy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/MyHurtBox2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/MyHurtBox"]
 position = Vector2(-1.5, 2)
 shape = SubResource("RectangleShape2D_y141l")
 
@@ -123,3 +123,5 @@ shape = SubResource("RectangleShape2D_g7nc4")
 libraries = {
 "": SubResource("AnimationLibrary_kabmc")
 }
+
+[connection signal="area_entered" from="AnimatedSprite2D/MyHurtBox" to="AnimatedSprite2D/MyHurtBox" method="_on_area_entered"]
