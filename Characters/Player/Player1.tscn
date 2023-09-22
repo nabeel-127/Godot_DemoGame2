@@ -1,21 +1,21 @@
 [gd_scene load_steps=38 format=3 uid="uid://c3y8qhe7b27gk"]
 
 [ext_resource type="Script" path="res://Characters/Player/Player1.gd" id="1_o6el0"]
-[ext_resource type="Texture2D" uid="uid://dg3qvpvkbdu5u" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_Down.png" id="2_w0ard"]
-[ext_resource type="PackedScene" uid="uid://dnm7vi7ord5tq" path="res://Weapons/Magic/SlashAttack.tscn" id="3_1tme1"]
-[ext_resource type="Texture2D" uid="uid://c8r36kehoxunv" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_DownLeft.png" id="3_boa25"]
-[ext_resource type="Texture2D" uid="uid://dd2h2uqno4lsv" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_DownRight.png" id="4_edwbs"]
-[ext_resource type="Texture2D" uid="uid://bmvrhxmqv8vns" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_Left.png" id="5_fo28b"]
-[ext_resource type="Texture2D" uid="uid://d2yi36q1rwb21" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_Right.png" id="6_5qjdp"]
-[ext_resource type="Texture2D" uid="uid://dgppf6t1nabf2" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_Up.png" id="7_ku04g"]
-[ext_resource type="Texture2D" uid="uid://boq43mrgm31kc" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_UpLeft.png" id="8_fayer"]
-[ext_resource type="Texture2D" uid="uid://cry3e424ddnul" path="res://Textures/Characters/PlayerCharacterA/Idle/PlayerCharacterA_UpRight.png" id="9_r6c5p"]
+[ext_resource type="Texture2D" uid="uid://dg3qvpvkbdu5u" path="res://Assets/Characters/Player1/Idle/Player1_Down.png" id="2_43vat"]
+[ext_resource type="PackedScene" uid="uid://dnm7vi7ord5tq" path="res://Weapons/Magic/MagicArrow.tscn" id="3_1tme1"]
+[ext_resource type="Texture2D" uid="uid://c8r36kehoxunv" path="res://Assets/Characters/Player1/Idle/Player1_DownLeft.png" id="3_ti6l7"]
+[ext_resource type="Texture2D" uid="uid://dd2h2uqno4lsv" path="res://Assets/Characters/Player1/Idle/Player1_DownRight.png" id="4_6kcim"]
+[ext_resource type="Texture2D" uid="uid://bmvrhxmqv8vns" path="res://Assets/Characters/Player1/Idle/Player1_Left.png" id="5_h4c37"]
+[ext_resource type="Texture2D" uid="uid://d2yi36q1rwb21" path="res://Assets/Characters/Player1/Idle/Player1_Right.png" id="6_r52dn"]
+[ext_resource type="Texture2D" uid="uid://dgppf6t1nabf2" path="res://Assets/Characters/Player1/Idle/Player1_Up.png" id="7_qvs2w"]
+[ext_resource type="Texture2D" uid="uid://boq43mrgm31kc" path="res://Assets/Characters/Player1/Idle/Player1_UpLeft.png" id="8_gwoj8"]
+[ext_resource type="Texture2D" uid="uid://cry3e424ddnul" path="res://Assets/Characters/Player1/Idle/Player1_UpRight.png" id="9_nm5al"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rthua"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_w0ard")
+"texture": ExtResource("2_43vat")
 }],
 "loop": true,
 "name": &"IdleDown",
@@ -23,7 +23,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_boa25")
+"texture": ExtResource("3_ti6l7")
 }],
 "loop": true,
 "name": &"IdleDownLeft",
@@ -31,7 +31,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_edwbs")
+"texture": ExtResource("4_6kcim")
 }],
 "loop": true,
 "name": &"IdleDownRight",
@@ -39,7 +39,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_fo28b")
+"texture": ExtResource("5_h4c37")
 }],
 "loop": true,
 "name": &"IdleLeft",
@@ -47,7 +47,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_5qjdp")
+"texture": ExtResource("6_r52dn")
 }],
 "loop": true,
 "name": &"IdleRight",
@@ -55,7 +55,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_ku04g")
+"texture": ExtResource("7_qvs2w")
 }],
 "loop": true,
 "name": &"IdleUp",
@@ -63,7 +63,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_fayer")
+"texture": ExtResource("8_gwoj8")
 }],
 "loop": true,
 "name": &"IdleUpLeft",
@@ -71,7 +71,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_r6c5p")
+"texture": ExtResource("9_nm5al")
 }],
 "loop": true,
 "name": &"IdleUpRight",
@@ -248,10 +248,22 @@ resource_name = "IdleUpLeft"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"IdleUpLeft"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -263,10 +275,22 @@ resource_name = "IdleUpRight"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"IdleUpRight"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -355,7 +379,7 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_s01xo"]
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_211oj")
-states/Idle/position = Vector2(352, 100.222)
+states/Idle/position = Vector2(353, 100)
 states/Start/position = Vector2(196.667, 100)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_tr4fq")
 states/Walk/position = Vector2(504.667, 99.5556)
@@ -401,5 +425,5 @@ active = true
 parameters/Idle/blend_position = Vector2(-0.106884, -0.30131)
 parameters/Walk/blend_position = Vector2(-0.00181162, 1)
 
-[node name="SlashAttack" parent="." instance=ExtResource("3_1tme1")]
-position = Vector2(-2, -16)
+[node name="MagicArrow" parent="." instance=ExtResource("3_1tme1")]
+position = Vector2(1, -30)

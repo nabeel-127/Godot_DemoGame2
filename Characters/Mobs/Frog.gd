@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 
 @onready var animation = $AnimationPlayer
+var health: float = 30
 
 func _ready():
 	animation.play("Idle")
@@ -12,5 +13,7 @@ func _physics_process(delta):
 	else:
 		animation.play("Idle")
 
-func TakeDamage(damage: int):
-	print("Damage: ", damage)
+func TakeDamage(damage : float):
+	health -= damage
+	print("Damage Dealt: ", damage)
+	print("Frog Health: ", health)

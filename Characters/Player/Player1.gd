@@ -8,28 +8,24 @@ const friction = 1000
 
 var health: float = 100
 var input = Vector2.ZERO
-var IsSlashAttacking: bool = false
+var IsAttacking: bool = false
 var Weapon: int = 2
 @onready var MyAnimationPlayer = $AnimationPlayer
 @onready var MyAnimationTree = $AnimationTree
-@onready var SlashAttack = [get_node("SlashAttack")]					#[0]
-
+@onready var MagicArrow = [get_node("MagicArrow")]					#[0]
 
 func _ready():
 	velocity.y = 0.1
 	PlayAnimation()
 	
-	MyAnimationTree.animation_started.connect(GetAnimation)
+#	MyAnimationTree.animation_started.connect(GetAnimation)
 	
-	SlashAttack.append(SlashAttack[0].get_node("AnimationPlayer"))		#[1]
-	SlashAttack.append(SlashAttack[0].get_node("Sprite2D1"))			#[2]
-	SlashAttack.append(SlashAttack[2].get_node("MyHitBox"))				#[3]
-	SlashAttack.append(SlashAttack[0].get_node("Sprite2D2"))			#[4]
-	SlashAttack.append(SlashAttack[2].get_node("MyHitBox"))				#[5]
-	SlashAttack.append(SlashAttack[0].get_node("Sprite2D3"))			#[6]
-	SlashAttack.append(SlashAttack[2].get_node("MyHitBox"))				#[7]
-	SlashAttack.append(SlashAttack[0].get_node("Sprite2D4"))			#[8]
-	SlashAttack.append(SlashAttack[2].get_node("MyHitBox"))				#[9]
+	if MagicArrow[0] != null:
+		MagicArrow.append(MagicArrow[0].get_node("AnimationPlayer"))
+		MagicArrow.append(MagicArrow[0].get_node("Sprite2D"))
+		MagicArrow.append(MagicArrow[2].get_node("MyHitBox"))
+	
+
 
 
 
@@ -38,53 +34,55 @@ func _physics_process(delta):
 	PlayAnimation()
 	move_and_slide()
 	
-	if not IsSlashAttacking:
+	if not IsAttacking:
 		SelectWeapon()
 	
 	if Input.is_action_just_pressed("ui_accept"):
-		SlashAttack[0].position = Vector2(0, -20)
-		Show(SlashAttack, Weapon)
-		SlashAttack[1].play("SlashAttack" + str(Weapon / 2))
-#			SlashAttack[Weapon].flip_h = true
+		Show(MagicArrow)
+		MagicArrow[1].play("MagicArrow")
+		MagicArrow[0].position = Vector2(-5, 20)
+		MagicArrow[0].rotation = deg_to_rad(0)
+		MagicArrow[2].flip_h = true
+		MagicArrow[2].flip_v = true
 		
 	
-	if not SlashAttack[1].is_playing() and IsSlashAttacking == true:
-		Hide(SlashAttack, Weapon)
+	if not MagicArrow[1].is_playing() and IsAttacking == true:
+		Hide(MagicArrow)
 	
 
 func GetAnimation(animation_name: String):
-	print(animation_name)
+	return (animation_name)
 
 func SelectWeapon():
 	if Input.is_action_just_pressed("Weapon1"):
-		Weapon = 2
+		Weapon = 1
 	elif Input.is_action_just_pressed("Weapon2"):
-		Weapon = 4
+		Weapon = 2
 	elif Input.is_action_just_pressed("Weapon3"):
-		Weapon = 6
+		Weapon = 3
 	elif Input.is_action_just_pressed("Weapon4"):
-		Weapon = 8
+		Weapon = 4
 
-func Hide(HideObject, index):
+func Hide(HideObject):
 	if HideObject[0] != null:
-		print("Entered Hide")		
-		HideObject[index].visible = false
-		HideObject[index + 1].collision_layer = 0
-		HideObject[index + 1].collision_mask = 0
-		IsSlashAttacking = false
+		HideObject[2].visible = false
+		HideObject[3].collision_layer = 0
+		HideObject[3].collision_mask = 0
+		IsAttacking = false
 
-func Show(ShowObject, index):
+func Show(ShowObject):
 	if ShowObject[0] != null:
-		print("Entered Show")		
-		ShowObject[index].visible = true
-		ShowObject[index + 1].collision_layer = 2
-		ShowObject[index + 1].collision_mask = 0
-		IsSlashAttacking = true
+		ShowObject[2].visible = true
+		ShowObject[3].collision_layer = 2
+		ShowObject[3].collision_mask = 0
+		IsAttacking = true
 
 
 func GetInput():
 	input.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
 	input.y = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
+	if input != Vector2.ZERO:
+		print(input)
 	return input.normalized()
 
 func PlayerMovement(delta):
@@ -108,8 +106,10 @@ func PlayAnimation():
 		$AnimationTree.set("parameters/Idle/blend_position", velocity)
 
 
-func TakeDamage(damage):
+func TakeDamage(damage : float):
 	health -= damage
+	print("PlayerDamageTaken: ", damage)
+	print("PlayerHealth: ", health)
 
 func GetHealth():
 	return health
