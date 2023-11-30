@@ -1,6 +1,6 @@
 extends Node2D
 
-var damage = 30
+var damage: float = 30
 
 func _ready():
 	$Sprite2D.visible = false

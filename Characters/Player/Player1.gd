@@ -6,7 +6,7 @@ const max_speed = 100
 const acceleration = 500
 const friction = 1000
 
-var health: float = 100
+var health: float = 1000
 var input = Vector2.ZERO
 var IsAttacking: bool = false
 var Weapon: int = 2

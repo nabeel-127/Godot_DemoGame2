@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://c3y8qhe7b27gk"]
+[gd_scene load_steps=39 format=3 uid="uid://c3y8qhe7b27gk"]
 
 [ext_resource type="Script" path="res://Characters/Player/Player1.gd" id="1_o6el0"]
 [ext_resource type="Texture2D" uid="uid://dg3qvpvkbdu5u" path="res://Assets/Characters/Player1/Idle/Player1_Down.png" id="2_43vat"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dgppf6t1nabf2" path="res://Assets/Characters/Player1/Idle/Player1_Up.png" id="7_qvs2w"]
 [ext_resource type="Texture2D" uid="uid://boq43mrgm31kc" path="res://Assets/Characters/Player1/Idle/Player1_UpLeft.png" id="8_gwoj8"]
 [ext_resource type="Texture2D" uid="uid://cry3e424ddnul" path="res://Assets/Characters/Player1/Idle/Player1_UpRight.png" id="9_nm5al"]
+[ext_resource type="Script" path="res://Gameplay/MyHurtBox.gd" id="10_cdytr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rthua"]
 animations = [{
@@ -399,6 +400,14 @@ position = Vector2(0, -15.371)
 scale = Vector2(0.04, 0.04)
 sprite_frames = SubResource("SpriteFrames_rthua")
 animation = &"IdleUp"
+
+[node name="MyHurtBox" type="Area2D" parent="AnimatedSprite2D"]
+script = ExtResource("10_cdytr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/MyHurtBox"]
+position = Vector2(0, 306.15)
+scale = Vector2(25, 25)
+shape = SubResource("RectangleShape2D_qxty7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3.125)
